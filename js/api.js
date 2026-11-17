@@ -33,9 +33,10 @@ export const getContent=()=>request("/Catalogu")
 
 
 
-export const createContent=()=>request("/catalogu",{method:"POST",body:JSON.stringify()})
+export const createContent=(data)=>request("/catalogu",{method:"POST",body:JSON.stringify(data)})
     
 
-export function updateContent(){}
-export function deleteContent(){}
-export function getComments(){}
+export const updateContent=(data)=>request("/catalogu",{method:"PUT",body:JSON.stringify(data)})
+export const deleteContent=(data)=>request("/catalogu",{method:"DELETE",body:JSON.stringify(data)})
+export const getComments=(id)=>request(`/Catalogu/${id}/Comments`)
+export const createComments=(id,data)=>request(`/Catalogu/${id}/Comments`,{method:"POST",body:JSON.stringify(data)})
