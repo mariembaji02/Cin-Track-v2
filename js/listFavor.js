@@ -71,6 +71,7 @@ export function listFavor(Favorite)
             icon.classList.remove("fa-regular")
             icon.classList.add("fa-solid")
             icon.style.color="red"
+          
           }
           else
           {

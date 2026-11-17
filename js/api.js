@@ -1,35 +1,41 @@
-export async function initaliser()
-{
-    let Movies=JSON.parse(localStorage.getItem("movies"))
-    if(Movies===null)
-    {
-        try{
-            
-        const response= await fetch("https://raw.githubusercontent.com/ouchad97/cinetrack-api/main/cinetrack-data.json")
-        if(!response.ok)
-        {
-            console.log("error :",response.status)
-        }
-              Movies= await response.json()
-            
-                return Movies
-            }
-            catch(error)
-            {
-            console.log("error:",error.message)
-            }
-            finally{
-            console.log("fetch terminée")
-            }
+const URL_API="https://6afaf195730c1d152f32cf4c.mockapi.io/api/CineTrack-v2"
+export async function request(path,option={}) {
+    try{
+        const response= await fetch(URL_API+path,{
+                
+                headers :{"content-type":"application/JSON"},
+                ...option
+            })
+            if(!response.ok) throw new Error(`HTTP ${response.status}`)
+            return response.json() 
+
     }
-    else
+    catch(error)
     {
-        return Movies
+        console.log(error.message)
     }
-   
-        
+    finally
+    {
+        console.log("fetch terminer")
+    }
+      
 }
-export function sauvegarder(Movies)
-{
-     localStorage.setItem("movies",JSON.stringfy(Movies));
-}
+
+export const getContent=()=>request("/Catalogu")
+
+
+
+
+
+
+
+
+
+
+
+export const createContent=()=>request("/catalogu",{method:"POST",body:JSON.stringify()})
+    
+
+export function updateContent(){}
+export function deleteContent(){}
+export function getComments(){}

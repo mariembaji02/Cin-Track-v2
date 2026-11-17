@@ -1,12 +1,12 @@
-import {initaliser } from "./api.js";
+import {getContent } from "./api.js";
 import {modal} from './modal.js';
 import {pagination} from './pagination.js'
 import {search} from './search.js'
 import {addFavorite,listFavor,removeFavorite,Favorite} from './listFavor.js';
-let movies=await initaliser()
+let movies=await getContent()
+// console.table(movies)
 let nbrItem=6
 let page=1
-
 modal(movies);
 pagination(movies,page,nbrItem)
 search(movies)

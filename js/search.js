@@ -1,6 +1,6 @@
 import {pagination} from './pagination.js';
-import {initaliser} from './api.js';
-let movies=await initaliser();
+import {getContent} from './api.js';
+let movies=await getContent();
 let nbrItem=6
 let page=1
  let input=document.querySelector(".Search");
