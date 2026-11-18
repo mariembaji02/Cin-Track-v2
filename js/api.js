@@ -22,20 +22,9 @@ export async function request(path,option={}) {
 }
 
 export const getContent=()=>request("/Catalogu")
-
-
-
-
-
-
-
-
-
-
-
-export const createContent=()=>request("/catalogu",{method:"POST",body:JSON.stringify()})
+export const createContent=()=>request("/Catalogu",{method:"POST",body:JSON.stringify()})
     
 
 export function updateContent(){}
-export function deleteContent(){}
+export const deleteContent=(id)=>request(`/Catalogu/${id}`,{method:"DELETE"})
 export function getComments(){}
