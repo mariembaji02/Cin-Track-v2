@@ -25,8 +25,8 @@ export function pagination(movies,Page,nbrItem)
         number.forEach(num=>{
           if(num.textContent.trim()==Page)
           {
-             num.style.backgroundColor="#be185d"
-             num.style.color="white"
+             num.style.backgroundColor="#D8B4FE"
+             num.classList.add="white"
         
           }
         })

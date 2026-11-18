@@ -9,7 +9,7 @@ let nbrItem=6
 let page=1
 modal(movies);
 pagination(movies,page,nbrItem)
-search(movies)
+// search(movies)
 addFavorite(movies)
 removeFavorite(Favorite)
 listFavor(Favorite)

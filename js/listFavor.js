@@ -56,7 +56,8 @@ export function listFavor(Favorite)
 {       
     
        let listFavor=document.querySelector(".FavorMovie")
-        listFavor.innerHTML=[...Favorite].map(item=>{
+       let table=[...Favorite].sort((a,b)=> a.title.localeCompare(b.title));
+        listFavor.innerHTML=table.map(item=>{
           return `<li class="favor"> <div class="flex items-center gap-2"><img src=${item.image} alt="big Picture" class="h-15 w-15  object-cover  rounded"><p class="flex justify-start flex-col "><span class="font-semibold text-md">${item.title}</span><span class="text-gray-300 flex  text-xs  w-[100%] ">${item.genres.join("-")}</span></p></div> <i class="remove fa-solid fa-x cursor-pointer hover:text-pink-700" data-id=${item.id}></i></li>`
        }).join("")
 

@@ -19,3 +19,13 @@ body
 {
     cursor: pointer;
 }
+body {
+    background: linear-gradient(
+        135deg,
+        #090817,
+        #17102F,
+        #0F0B20
+    );
+
+    color: #F8FAFC;
+}
