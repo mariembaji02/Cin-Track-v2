@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinéTrack</title>
+    <link rel="icon"  type="image/icon"  href="images/movie-icon.svg">
+        <!-- link of tailwind css -->
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <!-- link of style sheet -->
+       <link rel="stylesheet" href="style.css">
+        <!-- font awsome link -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+      
+</head>
+<body class="min-h-screen  w-full">
+                  <section class="modal  hidden fixed flex justify-center items-center top-0 left-0 h-full w-full z-1 bg-[rgba(33,33,33,0.31)]">
+                    <div class="infos bg-red-500  h-[90%]   w-[90%] md:w-[70%]  sm:h-[70%]  lg:w-[50%]  rounded-lg relative">
+                     
+                                 
+                    </div>
+                  </section>
+                  <div class=" min-h-screen w-full">
+
+                     <nav class="flex justify-between items-center w-[100%] p-1">
+                        <header class=" flex  items-center gap-2  p-4 relative rounded-lg"> <img src="images/movie-icon.svg" alt="icon" class=" w-10 h-10"> <h1 class="text-xl font-semibold"> Ciné<span class="text-[#C084FC]">Track</span></h1></header>
+
+                            <div class="search absolute w-[100%]   top-[10%] md:static md:w-[35%] lg:relative   flex  justify-center items-center gap-2 ">
+                            <input type="text" placeholder=" Enter le titre ..." class="Search border border-gray-400 rounded-md w-[80%] p-2 text-gray-700 bg-white">
+                            <i class="fa-solid fa-search text-lg  text-gray-500 absolute right-[15%] md:right-[25%] lg:right-[17%]"  ></i>
+                            </div>
+                           <div class=" flex  items-center cursor-pointer">
+                            <p class=" flex  items-center text-center  gap-1 px-3 py-3  text-md md:text-sm rounded-lg "><a href="index.html" class="flex gap-2 items-center "><span class="bg-[rgba(230,223,230,0.6)] p-1 rounded-xl"><img src="images/catalogu.svg" alt="catalogue" class="w-5 h-5"></span><span class="text-white" >Catalogue</span></a> </p>
+                           </div>
+                         </nav>
+                       <main class="content  grid  ">
+                         <section class="rounded p-2 border-[#854b85d3]   h-auto ">
+                            <!-- dash board  -->
+                            <div class="flex justify-between items-start ">
+                                <h1 class="text-white text-2xl font-semibold ">Dashboard</h1>
+                                <div class="bg-[rgba(162,88,184,0.49)] mt-2 flex gap-1 text-purple-300 p-1 rounded-lg"> <img src="images/date.svg" class="w-5" alt=""><span class="text-sm">date of today</span></div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2  mt-4">
+                                <div class="bg-[rgba(45,25,75,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 md:w-[35%] h-30 rounded flex justify-center gap-3 p-2"> <img src="images/iconMovies.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">29</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
+                                <div class="bg-[rgba(62,75,25,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 md:w-[35%] h-30 rounded flex justify-center gap-3 p-2"> <img src="images/star.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">4.9</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
+                                <div class="bg-[rgba(67,25,75,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 h-30 rounded flex md:w-[35%]   justify-center gap-3  p-2">   <img src="images/heart.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">3.1K</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
+                            </div>
+                         </section>
+                         <section>
+                            <!-- grid of movie -->
+                              <div class="flex  justify-between items-center  p-3 rounded border border-violet-700/30   bg-[rgba(185,133,168,0.2)] m-2 h-20">
+                                 <div class="flex items-center gap-1"><h2 class="font-bold text-lg"> Movies & Series </h2></div>
+                                 <button class="bg-purple-300/50 w-9 cursor-pointer font-bold text-xl rounded p-1">+</button>
+                              </div>
+                           <div class="gridMovies border w-[90%] border-violet-700/30 gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:gap-2  p-4 w-full place-items-center">  
+
+                              </div>
+                         </section>
+                    
+                    
+                        
+                    
+                           
+
+                        </main>
+                   
+                   
+
+                  </div>
+
+                    <footer class="bg-black flex flex-col justify-center items-center h-20 mt-4 " >
+                      <h1 class="text-xl flex justify-center  font-semibold"> <img src="images/movie-icon.svg" alt="icon" class="w-10 h-10"> <span class="text-white"> Ciné</span><span class="text-pink-700">Track</span></h1>
+                      <p class="text-white text-center text-sm">2026 CinéTrack - plateform des movies</p>
+                  </footer> 
+
+
+
+    <script type="module" src="js/admin.js"></script>    
+</body>
+</html>
