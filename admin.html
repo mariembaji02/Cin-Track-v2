@@ -14,16 +14,208 @@
       
 </head>
 <body class="min-h-screen  w-full">
-                 <section class="modal hidden fixed flex justify-center items-center top-0 left-0 h-full w-full z-1 bg-[rgba(33,33,33,0.31)]">
-                    <div class="formAdd bg-white hidden  h-[90%]   w-[90%] md:w-[70%]  sm:h-[70%]  lg:w-[50%]  rounded-lg relative">
-                     
-                                 
+                
+                   <section class="modal  fixed flex justify-center items-center top-0 left-0 h-full w-full z-1 bg-black/70 backdrop-blur-sm">
+                    <!-- --------------------------------------------- -->
+                    
+                  <div id="modalAdd" class=" flex justify-center items-center lg:w-[70%] p-4">
+
+                        <div class="bg-[#171525] border border-violet-500/30 rounded w-full max-w-6xl max-h-[95vh] overflow-y-auto shadow-2xl">
+
+                            <!-- HEADER -->
+                            <div class="flex justify-between items-center px-6 py-5 border-b border-violet-500/20">
+                                <h2 class="text-white text-sm md:text-xl font-semibold ">
+                                    🎬 Ajouter un film / série
+                                </h2>
+
+                                <button onclick="document.querySelector('.modal').classList.add('hidden');"
+                                    class="text-violet-300 text-3xl hover:text-white cursor-pointer">
+                                    &times;
+                                </button>
+                            </div>
+
+
+                            <!-- CONTENT -->
+                            <form id="formAdd" class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6 p-6">
+
+
+                                <!-- LEFT : IMAGE -->
+                                <div class="flex flex-col items-center gap-4">
+
+                                    <!-- Poster preview -->
+                                    <div class="w-full aspect-[2/3] max-h-[500px] bg-[#211e35] border border-violet-500/30 rounded-xl overflow-hidden flex items-center justify-center">
+
+                                        <img id="previewImage"
+                                            src="images/IMG.jpg"
+                                            alt="Poster"
+                                            class="h-full w-full object-cover">
+
+                                    </div>
+
+                                    <!-- Image URL -->
+                                    <label for="image"
+                                        class="cursor-pointer w-full flex justify-center items-center gap-2 border border-violet-500 rounded-lg py-3 text-violet-300 hover:bg-violet-500/10 transition">
+                                        <i class="fa-regular fa-image"></i>
+                                        Choisir une image
+                                    </label>
+
+                                    <p class="text-gray-500 text-xs">
+                                        JPG, PNG
+                                    </p>
+
+                                </div>
+
+
+                                <!-- RIGHT : FORM FIELDS -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 content-start">
+
+
+                                    <!-- TITLE -->
+                                    <div>
+                                        <label for="title" class="text-gray-300 text-sm block mb-2">
+                                            Titre <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <input type="text" id="title" name="title" required
+                                            placeholder="Ex: Breaking Bad"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- TYPE -->
+                                    <div>
+                                        <label for="type" class="text-gray-300 text-sm block mb-2">
+                                            Type <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <select id="type" name="type" required
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+
+                                            <option value="" disabled selected>Choisir un type</option>
+                                            <option value="movie">Film</option>
+                                            <option value="series">Série</option>
+
+                                        </select>
+                                    </div>
+
+
+                                    <!-- YEAR -->
+                                    <div>
+                                        <label for="releaseYear" class="text-gray-300 text-sm block mb-2">
+                                            Année de sortie <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <input type="number" id="releaseYear" name="releaseYear" required
+                                            placeholder="2010"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- SEASONS -->
+                                    <div>
+                                        <label for="seasons" class="text-gray-300 text-sm block mb-2">
+                                            Saisons (pour les séries)
+                                        </label>
+
+                                        <input type="text" id="seasons" name="seasons"
+                                            placeholder="1, 2, 3, 4, 5"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- DURATION -->
+                                    <div class="sm:col-span-2">
+                                        <label for="duration" class="text-gray-300 text-sm block mb-2">
+                                            Durée (en min, pour les films)
+                                        </label>
+
+                                        <input type="number" id="duration" name="duration"
+                                            placeholder="148"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- GENRES -->
+                                    <div class="sm:col-span-2">
+                                        <label for="genres" class="text-gray-300 text-sm block mb-2">
+                                            Genres <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <input type="text" id="genres" name="genres" required
+                                            placeholder="Drama, Crime, Thriller"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+
+                                        <p class="text-gray-500 text-xs mt-1">
+                                            Séparer les genres par une virgule
+                                        </p>
+                                    </div>
+
+
+                                    <!-- DIRECTORS -->
+                                    <div class="sm:col-span-2">
+                                        <label for="directors" class="text-gray-300 text-sm block mb-2">
+                                            Réalisateur(s) <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <input type="text" id="directors" name="directors" required
+                                            placeholder="Vince Gilligan"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- COUNTRIES -->
+                                    <div class="sm:col-span-2">
+                                        <label for="productionCountries" class="text-gray-300 text-sm block mb-2">
+                                            Pays de production <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <input type="text" id="productionCountries" name="productionCountries" required
+                                            placeholder="USA, UK"
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
+                                    </div>
+
+
+                                    <!-- DESCRIPTION -->
+                                    <div class="sm:col-span-2">
+                                        <label for="description" class="text-gray-300 text-sm block mb-2">
+                                            Description <span class="text-red-400">*</span>
+                                        </label>
+
+                                        <textarea id="description" name="description" required rows="3"
+                                            placeholder="Description du film ou de la série..."
+                                            class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500 resize-y"></textarea>
+                                    </div>
+
+
+                                    <!-- BUTTONS -->
+                                    <div class="sm:col-span-2 flex justify-end gap-3 pt-4 border-t border-violet-500/20">
+
+                                        <button type="button"
+                                            onclick="document.getElementById('modalAdd').classList.add('hidden')"
+                                            class="px-5 py-3 rounded-lg border border-violet-500/30 text-gray-300 hover:bg-violet-500/10 transition">
+                                            Annuler
+                                        </button>
+
+                                        <button type="submit"
+                                            class="px-6 py-3 rounded-lg bg-violet-600 hover:bg-violet-700 text-white transition">
+                                            <i class="fa-solid fa-plus mr-1"></i>
+                                            Ajouter
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
                     </div>
+                    <!-- ------------------------------------------------------ -->
                     <div class="formEdit bg-white hidden  h-[90%]   w-[90%] md:w-[70%]  sm:h-[70%]  lg:w-[50%]  rounded-lg relative">
                      
                                  
                     </div>
-                    <div class="Confirm bg-white  flex flex-col justify-center items-center gap-2  h-[30%]   w-[30%]  rounded-lg relative">
+                    <div class="Confirm bg-white hidden flex flex-col justify-center items-center gap-2  h-[30%]   w-[30%]  rounded-lg relative">
                         <p class="text-black text-3xl absolute top-2 right-6 cursor-pointer" onclick="document.querySelector('.modal').classList.add('hidden')">&times;</p>
                         <p class="title text-black font-semibold text-2xl"></p>
                         <p class="text-black ">bien supprimer </p>
@@ -61,7 +253,7 @@
                             <!-- grid of movie -->
                               <div class="flex  justify-between items-center  p-3 rounded border border-violet-700/30   bg-[rgba(185,133,168,0.2)] m-2 h-20">
                                  <div class="flex items-center gap-1"><h2 class="font-bold text-lg"> Movies & Series </h2></div>
-                                 <button class="bg-purple-300/50 w-9 cursor-pointer font-bold text-xl rounded p-1">+</button>
+                                 <button class="bg-purple-300/50 w-9 cursor-pointer font-bold text-xl rounded p-1" onclick="document.querySelector('.modal').classList.remove('hidden');">+</button>
                               </div>
                            <div class="gridMovies border w-[90%] border-violet-700/30 gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:gap-2  p-4 w-full place-items-center">  
                                   
