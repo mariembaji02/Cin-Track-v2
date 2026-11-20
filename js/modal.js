@@ -27,7 +27,7 @@ export async function modal(movies)
                //  infos.style.backgroundSize="100% 100%"
                 infos.innerHTML+=
                 `<button id="closeDetails"
-                     class="hideModal absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 cursor-pointer hover:bg-[rgba(220,206,220,0.52)] text-white text-xl">
+                     class="hideModal absolute top-4 right-4 px-3 py-2 rounded-xl bg-white/10 cursor-pointer hover:bg-[rgba(220,206,220,0.52)] text-white text-xl">
                      &times;
                   </button>
                 <div class="details relative h-auto p-2 shadow-xl rounded-lg flex flex-col sm:flex-row  gap-1 ">
