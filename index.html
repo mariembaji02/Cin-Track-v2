@@ -1,89 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CinéTrack</title>
-    <link rel="icon"  type="image/icon"  href="images/movie-icon.svg">
-        <!-- link of tailwind css -->
-      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-      <!-- link of style sheet -->
-       <link rel="stylesheet" href="style.css">
-        <!-- font awsome link -->
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-      
-</head>
-<body class="min-h-screen  w-full">
-                  <section class="modal  hidden fixed flex justify-center items-center top-0 left-0 h-full w-full z-1 bg-[rgba(33,33,33,0.31)]">
-                    <div class="infos bg-red-500  h-[90%]   w-[90%] md:w-[70%]  sm:h-[70%]  lg:w-[50%]  rounded-lg relative">
-                     
-                                 
-                    </div>
-                  </section>
-                  <div class=" min-h-screen w-full">
+    <link rel="icon" type="image/icon" href="images/movie-icon.svg" />
+    <!-- link of tailwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- link of style sheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- font awsome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body class="min-h-screen w-full">
+    <section
+      class="modal hidden fixed flex justify-center items-center top-0 left-0 h-full w-full z-1 bg-[rgba(33,33,33,0.31)]"
+    >
+      <div
+        class="infos bg-red-500 h-[90%] w-[90%] md:w-[70%] sm:h-[70%] lg:w-[50%] rounded-lg relative"
+      ></div>
+    </section>
+    <div class="min-h-screen w-full">
+      <nav class="flex justify-around items-center w-[100%] p-1">
+        <header class="flex items-center gap-2 p-4 relative rounded-lg">
+          <img src="images/movie-icon.svg" alt="icon" class="w-10 h-10" />
+          <h1 class="text-xl font-semibold">
+            Ciné<span class="text-pink-700">Track</span>
+          </h1>
+        </header>
 
-                     <nav class="flex justify-around items-center w-[100%] p-1">
-                        <header class=" flex  items-center gap-2  p-4 relative rounded-lg"> <img src="images/movie-icon.svg" alt="icon" class=" w-10 h-10"> <h1 class="text-xl font-semibold"> Ciné<span class="text-pink-700">Track</span></h1></header>
+        <div
+          class="genreType flex justify-center md:justify-start gap-6 h-12 absolute top-[23%] w-full md:static md:w-[30%]"
+        >
+          <button
+            class="home cursor-pointer bg-[rgba(220,206,220,0.52)] rounded text-white border-b-5 border-white w-[30%] text-center text-sm md:text-md"
+            data-type="all"
+          >
+            Home
+          </button>
+          <button
+            class="cursor-pointer text-white w-[20%] text-center text-sm md:text-md"
+            data-type="series"
+          >
+            Serie
+          </button>
+          <button
+            class="cursor-pointer text-white w-[20%] text-center text-sm md:text-md"
+            data-type="movie"
+          >
+            Film
+          </button>
+        </div>
+        <div
+          class="search absolute w-[100%] top-[32%] md:static md:w-[35%] flex justify-center items-center gap-2"
+        >
+          <input
+            type="text"
+            placeholder="  Enter le titre ..."
+            class="Search border border-gray-400 rounded-md w-[80%] p-2 text-gray-700 bg-white"
+          />
+          <i
+            class="fa-solid fa-search text-lg text-[#2b1646] absolute right-[15%] md:right-[25%] lg:right-[17%]"
+          ></i>
+        </div>
+        <div class="flex items-center cursor-pointer">
+          <p
+            class="bg-white flex items-center text-center gap-1 px-3 py-3 text-md md:text-sm rounded-lg"
+          >
+            <a href="admin.html" class="flex gap-2 items-center"
+              ><i class="fa-solid fa-user text-[#9b299b]"></i
+              ><span>admin</span></a
+            >
+          </p>
+        </div>
+      </nav>
+      <main
+        class="content grid lg:grid-cols-[70%_30%] mt-[20%] sm:mt-[11%] lg:mt-1"
+      >
+        <section>
+          <div class="flex flex-col justify-center items-center mt-5 md:mt-0">
+            <div
+              class="CardGrid grid mt-35 place-items-center sm:grid-cols-2 md:grid-cols-3 w-[70%] sm:w-[90%] h-[40%] gap-2 md:mt-1"
+            ></div>
+            <div class="pagination flex justify-around mt-3 mb-3 w-[70%]"></div>
+          </div>
+          <div class="flex justify-center">
+            <p
+              class="message bg-[rgba(220,206,220,0.52)] text-center hidden w-[90%] rounded-md p-5 font-semibold mt-10"
+            ></p>
+          </div>
+        </section>
 
-                            <div class="genreType  flex justify-center md:justify-start gap-6 h-12 absolute top-[23%] w-full  md:static  md:w-[30%] ">
-                                <button class="home cursor-pointer bg-[rgba(220,206,220,0.52)] rounded text-white border-b-5 border-white   w-[30%] text-center  text-sm md:text-md " data-type="all">Home</button>
-                                <button class=" cursor-pointer text-white  w-[20%] text-center  text-sm md:text-md "  data-type="series">Serie</button>
-                                <button class=" cursor-pointer text-white w-[20%] text-center  text-sm md:text-md "  data-type="movie">Film</button>
-                                
-                            </div>
-                            <div class="search absolute w-[100%]   top-[32%] md:static md:w-[35%]  flex  justify-center items-center gap-2 ">
-                            <input type="text" placeholder="  Enter le titre ..." class="Search border border-gray-400 rounded-md w-[80%] p-2 text-gray-700  bg-white">
-                            <i class="fa-solid fa-search text-lg  text-[#2b1646] absolute right-[15%] md:right-[25%] lg:right-[17%]"  ></i>
-                            </div>
-                           <div class=" flex  items-center cursor-pointer">
-                            <p class="bg-white flex  items-center text-center  gap-1 px-3 py-3  text-md md:text-sm rounded-lg "><a href="admin.html" class="flex gap-2 items-center"><i class="fa-solid fa-user text-[#9b299b]"></i><span >admin</span></a> </p>
-                           </div>
-                         </nav>
-                       <main class="content  grid   lg:grid-cols-[70%_30%] mt-[20%]   sm:mt-[11%] lg:mt-1 ">
-                       
-                      <section>
-                         <div class="flex flex-col justify-center  items-center mt-5 md:mt-0 ">
-                          <div class="CardGrid grid  mt-35 place-items-center  sm:grid-cols-2 md:grid-cols-3 w-[70%] sm:w-[90%] h-[40%] gap-2 md:mt-1">
-                             
-                         </div>
-                         <div class="pagination flex justify-around mt-3 mb-3 w-[70%]"></div>
-                        
-                         </div>
-                          <div class="flex justify-center ">
-                            <p class="message bg-[rgba(220,206,220,0.52)] text-center hidden w-[90%] rounded-md p-5 font-semibold mt-10"></p>
-                          </div>
-                      </section>  
+        <aside
+          class="nav flex justify-center absolute top-[10%] w-[100%] md:top-[9%] lg:static"
+        >
+          <nav
+            class="w-[90%] md:w-[100%] flex flex-col items-center md:mt-7 h-[90%]"
+          >
+            <div
+              class="lg:mr-5 mb-2 w-[100%] md:w-[70%] lg:h-[15%] lg:w-[90%] rounded-lg border border-[#854b85d3] lg:bg-[rgba(185,133,168,0.2)] h-auto p-4"
+            >
+              <p class="text-md font-semibold"></p>
+              <p
+                class="border-b-1 mb-2 pb-1 border-[#854b85d3] font-bold flex justify-between"
+              >
+                <span
+                  >Favorite <i class="fa-solid fa-heart text-red-500"></i
+                ></span>
+                <span class="lg:hidden"
+                  ><i
+                    class="btnShow fa-solid fa-list mr-1 cursor-pointer hover:text-white"
+                  ></i
+                ></span>
+              </p>
+              <p class="flex justify-around text-sm">
+                <span class="font-semibold"
+                  >All: <span class="allCount"></span></span
+                ><span class="font-semibold"
+                  >Series: <span class="SeriesCount"></span></span
+                ><span class="font-semibold"
+                  >Movies: <span class="MoviesCount"></span
+                ></span>
+              </p>
+            </div>
 
-                      
-                      <aside class="nav flex justify-center  absolute top-[10%] w-[100%] md:top-[9%]   lg:static ">
-                        <nav class="w-[90%] md:w-[100%] flex flex-col   items-center md:mt-7  h-[90%]">
-                      <div class="lg:mr-5 mb-2 w-[100%] md:w-[70%] lg:h-[15%] lg:w-[90%] rounded-lg border border-[#854b85d3]   lg:bg-[rgba(185,133,168,0.2)] h-auto p-4 ">
-                        <p class="text-md font-semibold "> <p class=" border-b-1 mb-2 pb-1 border-[#854b85d3] font-bold flex justify-between"> <span>Favorite <i class="fa-solid fa-heart text-red-500"></i></span> <span class=" lg:hidden "><i class="btnShow fa-solid fa-list mr-1  cursor-pointer hover:text-white"></i></span></p>
-                        <p class="flex justify-around text-sm"><span class="font-semibold">All: <span class="allCount"></span></span><span class="font-semibold">Series: <span class="SeriesCount"></span></span><span class="font-semibold">Movies: <span class="MoviesCount"></span></span></p>
-                      
-                        </div>
-                        
-                        <ul class="FavorMovie bg-[rgba(177,166,174,0.99)] border border-[#854b85d3] lg:bg-[rgba(185,133,168,0.2)] w-[90%] hidden lg:block overflow-auto shadow-2xl  md:mr-5  rounded-lg h-[70%] p-3 ">
-                        </ul>
-                        </nav>
-                        
-                    
-                   </aside>
-                           
+            <ul
+              class="FavorMovie bg-[rgba(177,166,174,0.99)] border border-[#854b85d3] lg:bg-[rgba(185,133,168,0.2)] w-[90%] hidden lg:block overflow-auto shadow-2xl md:mr-5 rounded-lg h-[70%] p-3"
+            ></ul>
+          </nav>
+        </aside>
+      </main>
+    </div>
 
-                    </main>
-                   
-                   
+    <footer
+      class="bg-black flex flex-col justify-center items-center h-20 mt-4"
+    >
+      <h1 class="text-xl flex justify-center font-semibold">
+        <img src="images/movie-icon.svg" alt="icon" class="w-10 h-10" />
+        <span class="text-white"> Ciné</span
+        ><span class="text-pink-700">Track</span>
+      </h1>
+      <p class="text-white text-center text-sm">
+        2026 CinéTrack - plateform des movies
+      </p>
+    </footer>
 
-                  </div>
-
-                    <footer class="bg-black flex flex-col justify-center items-center h-20 mt-4 " >
-                      <h1 class="text-xl flex justify-center  font-semibold"> <img src="images/movie-icon.svg" alt="icon" class="w-10 h-10"> <span class="text-white"> Ciné</span><span class="text-pink-700">Track</span></h1>
-                      <p class="text-white text-center text-sm">2026 CinéTrack - plateform des movies</p>
-                  </footer> 
-
-
-
-    <script type="module" src="js/main.js"></script>    
-</body>
+    <script type="module" src="js/main.js"></script>
+  </body>
 </html>

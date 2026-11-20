@@ -48,7 +48,7 @@ export function addFavorite(movies)
 
  
 }
-function saveFavorite()
+export function saveFavorite()
 {
     localStorage.setItem("favorite",JSON.stringify([...Favorite]))
 }

@@ -28,7 +28,7 @@ export function afficherCardAdmin(movies)
                
                     <p class="flex  justify-center gap-1   top-2 right-2 p-1 absolute ">
 
-                        <button id="modifier" data-id=${id}>
+                        <button class="modifier" data-id=${id}>
                             <i class="fa-solid fa-pen text-white bg-green-500/70 p-2 text-sm rounded-lg"></i>
                         </button>
 
