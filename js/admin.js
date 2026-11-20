@@ -307,20 +307,16 @@ formEdit.addEventListener("submit",async(e)=>{
 
                 await updateContent(editId,movie)
                 let index=[...Favorite].findIndex(f=>f.id===editId)
-                if(index)
+                if(!index)
                 {
-               
-                    console.log(Favorite[index])
-                }
-                else
-                {
-                    console.log("pas Trouver !!!!")
+                    Favorite[index]=movie
+                    saveFavorite()
                 }
                 movies = await getContent();
                 afficherCardAdmin(movies);
                 document.querySelector(".formErrorEdit").classList.remove("bg-red-500/20","border-red-600","text-red-400")
                 document.querySelector(".formErrorEdit").classList.add("bg-green-500/20","border-green-600","text-green-400")
-                
+                console.log(Favorite)
             
 
          }
