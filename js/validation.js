@@ -31,11 +31,11 @@ export function validerMovie(movie)
          
     }
      let currentYear=new Date().getFullYear()
-    if(movie.year==="" && !movie.year)
+    if(movie.releaseYear==="")
     {
          messageError.year="« l'annee est obligatoire »"
     }
-    else if(movie.year<1900 || movie.year>currentYear)
+    else if(movie.releaseYear<1900 || movie.releaseYear>currentYear)
     {
         messageError.year=`« l'annee doit etre entre 1900 et ${currentYear} »`
     }
@@ -71,4 +71,16 @@ export function validerMovie(movie)
      messageError.country="« les pays obligatoire »"
     }
     return  messageError
+}
+export function validerComment(data){
+     const erreur={}
+    if(data.author == ""){
+        erreur.author ="Le nom est obligatoir !";
+    }
+
+    if(data.text == ""){
+        erreur.text ="Le commantaire est obligatoir !";
+    }
+
+    return erreur;
 }

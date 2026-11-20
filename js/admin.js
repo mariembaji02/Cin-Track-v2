@@ -140,7 +140,7 @@ formAjouter.addEventListener("submit",async(e)=>{
         let movie = {
             title: FormD.get("title").trim(),
             type: FormD.get("type").trim(),
-            releaseYear: Number(FormD.get("releaseYear")),
+            releaseYear:FormD.get("releaseYear")===""?"": Number(FormD.get("releaseYear")),
 
             [FormD.get("type") === "movie" ? "duration" : "seasons"]:
                 FormD.get("type") === "movie"
@@ -149,9 +149,9 @@ formAjouter.addEventListener("submit",async(e)=>{
             image:FormD.get("image"),
             description: FormD.get("description"),
           
-            genres: FormD.get("genres").split(",").map(g=>{return g.trim()}),
-            directors: FormD.get("directors").split(",").map(d=>{ return d.trim()}),
-            productionCountries: FormD.get("productionCountries").split(",").map(p=>{return p.trim()})
+            genres:FormD.get("genres")===""?"": FormD.get("genres").split(",").map(g=>{return g.trim()}),
+            directors:FormD.get("directors")===""?"": FormD.get("directors").split(",").map(d=>{ return d.trim()}),
+            productionCountries:FormD.get("productionCountries")===""?"": FormD.get("productionCountries").split(",").map(p=>{return p.trim()})
             
         }
         let error=validerMovie(movie)
@@ -264,7 +264,7 @@ formEdit.addEventListener("submit",async(e)=>{
         let movie = {
             title: FormE.get("title").trim(),
             type: FormE.get("type").trim(),
-            releaseYear: Number(FormE.get("releaseYear")),
+            releaseYear:FormE.get("releaseYear")===""?"": Number(FormE.get("releaseYear")),
 
             [FormE.get("type") === "movie" ? "duration" : "seasons"]:
                 FormE.get("type") === "movie"
@@ -273,17 +273,17 @@ formEdit.addEventListener("submit",async(e)=>{
             image:imageEdit.src,
             description: FormE.get("description"),
           
-            genres: FormE.get("genres").split(",").map(g=>{return g.trim()}),
-            directors: FormE.get("directors").split(",").map(d=>{ return d.trim()}),
-            productionCountries: FormE.get("productionCountries").split(",").map(p=>{return p.trim()})
+            genres:FormE.get("genres")===""?"":FormE.get("genres").split(",").map(g=>{return g.trim()}),
+            directors:FormE.get("directors")===""?"": FormE.get("directors").split(",").map(d=>{ return d.trim()}),
+            productionCountries:FormE.get("productionCountries")===""?"": FormE.get("productionCountries").split(",").map(p=>{return p.trim()})
             
         }
         
         let error=validerMovie(movie)
         afficheError(error)
-         console.log(movie)
-
+          
         if(Object.keys(error).length>0)return
+            
             let message=""
             let res = movies.find(m =>
             Object.keys(movie)
@@ -296,7 +296,6 @@ formEdit.addEventListener("submit",async(e)=>{
 
             document.querySelector(".formErrorEdit").classList.remove("bg-green-500/20","border-green-600","text-green-400")
             document.querySelector(".formErrorEdit").classList.add("bg-red-500/20","border-red-600","text-red-400")
-            //  console.log("exist")
             
          }
          else
@@ -304,10 +303,19 @@ formEdit.addEventListener("submit",async(e)=>{
             
                
                 
-                // console.log(editId)
                 message=`« ${movie.title}  bien Modifier»`
 
                 await updateContent(editId,movie)
+                let index=[...Favorite].findIndex(f=>f.id===editId)
+                if(index)
+                {
+               
+                    console.log(Favorite[index])
+                }
+                else
+                {
+                    console.log("pas Trouver !!!!")
+                }
                 movies = await getContent();
                 afficherCardAdmin(movies);
                 document.querySelector(".formErrorEdit").classList.remove("bg-red-500/20","border-red-600","text-red-400")
@@ -323,8 +331,5 @@ formEdit.addEventListener("submit",async(e)=>{
 
 
 
-        
-        //  }  
-       
-    //   document.querySelector(".formError").classList.add("hidden")
+
 })

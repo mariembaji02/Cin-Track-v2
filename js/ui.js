@@ -20,7 +20,7 @@ export function afficherCardAdmin(movies)
     gridCard.innerHTML=movies.map(card=>{
         const {id,image}=card
         return `
-            <div class="card  relative border-gray-200 border rounded-md shadow-lg shadow-white/30 overflow-hidden w-full max-w-[380px] " data-id=${id}>
+            <div class="card  relative border-gray-200 border rounded-md shadow-lg shadow-white/30 overflow-hidden w-[90%] max-w-[380px] " data-id=${id}>
 
                 <img src="${image}" 
                      class="w-full aspect-[2/3] object-cover block relative">

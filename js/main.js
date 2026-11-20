@@ -9,6 +9,7 @@ let movies=await getContent()
 let nbrItem=6
 let page=1
 modal(movies);
+
 pagination(movies,page,nbrItem)
 
 // search(movies)

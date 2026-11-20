@@ -199,7 +199,7 @@
                                     <div class="sm:col-span-2 flex justify-end gap-3 pt-4 border-t border-violet-500/20">
 
                                         <button type="button"
-                                            onclick="document.getElementById('modalAdd').classList.add('hidden')"
+                                            onclick="document.querySelector('.modal').classList.add('hidden');document.querySelector('#modalAdd').classList.add('hidden');"
                                             class="px-5 py-3 rounded-lg border border-violet-500/30 text-gray-300 hover:bg-violet-500/10 transition">
                                             Annuler
                                         </button>
@@ -412,7 +412,7 @@
 
                     <!-- CANCEL -->
                     <button type="button"
-                        onclick="document.querySelector('.modal').classList.add('hidden')"
+                        onclick="document.querySelector('.modal').classList.add('hidden');document.querySelector('#modalEdit').classList.add('hidden');"
                         class="px-5 py-3 rounded-lg border border-violet-500/30 text-gray-300 hover:bg-violet-500/10 transition">
 
                         <i class="fa-solid fa-xmark mr-1"></i>
@@ -453,7 +453,7 @@
                         <div class=" min-h-screen  w-full">
 
                      <nav class="flex justify-between items-center w-[100%] p-1">
-                        <header class=" flex  items-center gap-2  p-4 relative rounded-lg"> <img src="images/movie-icon.svg" alt="icon" class=" w-10 h-10"> <h1 class="text-xl font-semibold"> Ciné<span class="text-[#C084FC]">Track</span></h1></header>
+                        <header class=" flex  items-center gap-2  p-4 relative rounded-lg"> <img src="images/movie-icon.svg" alt="icon" class=" w-10 h-10"> <h1 class="text-xl font-semibold"> Ciné<span class="text-pink-700">Track</span></h1></header>
 
                             <div class="search absolute w-[100%]   top-[10%] md:static md:w-[35%] lg:relative   flex  justify-center items-center gap-2 ">
                             <input type="text" placeholder=" Enter le titre ..." class="Search border border-gray-400 rounded-md w-[80%] p-2 text-gray-700 bg-white">
