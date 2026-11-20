@@ -31,7 +31,7 @@ export function validerMovie(movie)
          
     }
      let currentYear=new Date().getFullYear()
-    if(movie.year==="")
+    if(movie.year==="" && !movie.year)
     {
          messageError.year="« l'annee est obligatoire »"
     }
@@ -58,7 +58,7 @@ export function validerMovie(movie)
     {
          messageError.description="« la description est vide »"
     }
-     if(!movie.genres)
+     if(movie.genres==="" || !movie.genres)
     {
          messageError.genres="« les genres sont obligatoires »"
     }

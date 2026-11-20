@@ -1,4 +1,4 @@
-import { getContent, deleteContent,createContent } from "./api.js";
+import { getContent, deleteContent,createContent,updateContent } from "./api.js";
 import { afficherCardAdmin } from "./ui.js";
 import { Favorite,saveFavorite } from "./listFavor.js";
 let gridCard = document.querySelector(".gridMovies");
@@ -52,7 +52,7 @@ gridCard.addEventListener("click", async (e) => {
   loading();
 });
 
-
+let editId;
 //afficher les infos dans la form modifier 
 gridCard.addEventListener("click",(e)=>{
      let modalEdit = document.querySelector("#modalEdit");
@@ -60,6 +60,7 @@ gridCard.addEventListener("click",(e)=>{
     let buttonEdit = e.target.closest(".modifier");
     if (!buttonEdit) return;
     let id = buttonEdit.dataset.id;
+    editId=id
     let movie = movies.find((m) => m.id == id);
     
      document.getElementById("editTitle").value=movie.title
@@ -237,6 +238,93 @@ function afficheError(error)
       document.querySelector(".countryError").textContent=error.productionCountries
       document.querySelector(".disError").textContent=error.description
       document.querySelector(".countryError").textContent=error.country
+    //   ----------------------------------------------------------
+     document.querySelector(".titleErrorEdit").textContent=error.title  
+    //   document.querySelector(".imageErrorEdit").textContent=error.image
+      document.querySelector(".typeErrorEdit").textContent=error.type
+      document.querySelector(".yearErrorEdit").textContent=error.year
+       document.querySelector(".seasonsErrorEdit").textContent=error.seasons
+      document.querySelector(".durationErrorEdit").textContent=error.duree
+      document.querySelector(".genreErrorEdit").textContent=error.genres
+      document.querySelector(".directorErrorEdit").textContent=error.directors
+      document.querySelector(".countryErrorEdit").textContent=error.productionCountries
+      document.querySelector(".disErrorEdit").textContent=error.description
+      document.querySelector(".countryErrorEdit").textContent=error.country
 }
 
 ////modifier
+
+let formEdit=document.getElementById("formEdit")
+formEdit.addEventListener("submit",async(e)=>{
+     e.preventDefault();
+  
+     let FormE=new FormData(formEdit)
+      
+         
+        let movie = {
+            title: FormE.get("title").trim(),
+            type: FormE.get("type").trim(),
+            releaseYear: Number(FormE.get("releaseYear")),
+
+            [FormE.get("type") === "movie" ? "duration" : "seasons"]:
+                FormE.get("type") === "movie"
+                    ? Number(FormE.get("duration")) 
+                    : Array.from({length:Number(FormE.get("seasons"))},(_,i)=>i+1),
+            image:imageEdit.src,
+            description: FormE.get("description"),
+          
+            genres: FormE.get("genres").split(",").map(g=>{return g.trim()}),
+            directors: FormE.get("directors").split(",").map(d=>{ return d.trim()}),
+            productionCountries: FormE.get("productionCountries").split(",").map(p=>{return p.trim()})
+            
+        }
+        
+        let error=validerMovie(movie)
+        afficheError(error)
+         console.log(movie)
+
+        if(Object.keys(error).length>0)return
+            let message=""
+            let res = movies.find(m =>
+            Object.keys(movie)
+            .filter(key => key !== "id")
+            .every(key => JSON.stringify(m[key]) === JSON.stringify(movie[key])))
+      
+         if(res)
+         {
+            message=`« les donnes de ${movie.type} déja Exist »`
+
+            document.querySelector(".formErrorEdit").classList.remove("bg-green-500/20","border-green-600","text-green-400")
+            document.querySelector(".formErrorEdit").classList.add("bg-red-500/20","border-red-600","text-red-400")
+            //  console.log("exist")
+            
+         }
+         else
+         {
+            
+               
+                
+                // console.log(editId)
+                message=`« ${movie.title}  bien Modifier»`
+
+                await updateContent(editId,movie)
+                movies = await getContent();
+                afficherCardAdmin(movies);
+                document.querySelector(".formErrorEdit").classList.remove("bg-red-500/20","border-red-600","text-red-400")
+                document.querySelector(".formErrorEdit").classList.add("bg-green-500/20","border-green-600","text-green-400")
+                
+            
+
+         }
+            document.querySelector(".formErrorEdit").textContent=message;
+            console.log(message)
+            console.log(document.querySelector(".formError"))
+            document.querySelector(".formErrorEdit").classList.remove("hidden")
+
+
+
+        
+        //  }  
+       
+    //   document.querySelector(".formError").classList.add("hidden")
+})

@@ -344,7 +344,8 @@
                     <input type="number" id="editDuration" name="duration"
                         placeholder="148"
                         class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
-                </div>
+                     <p class="durationErrorEdit text-center text-sm mt-1 text-red-400"></p>
+                    </div>
 
 
                 <!-- GENRES -->
@@ -353,13 +354,15 @@
                         Genres <span class="text-red-400">*</span>
                     </label>
 
-                    <input type="text" id="editGenres" name="genres" required
+                    <input type="text" id="editGenres" name="genres" 
                         placeholder="Science Fiction, Action, Thriller"
                         class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
 
                     <p class="text-gray-500 text-xs mt-1">
                         Séparer les genres par une virgule
                     </p>
+                     <p class="genreErrorEdit text-center text-sm mt-1 text-red-400"></p>
+
                 </div>
 
 
@@ -369,10 +372,12 @@
                         Réalisateur(s) <span class="text-red-400">*</span>
                     </label>
 
-                    <input type="text" id="editDirectors" name="directors" required
+                    <input type="text" id="editDirectors" name="directors" 
                         placeholder="Christopher Nolan"
                         class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
-                </div>
+                     <p class="directorErrorEdit text-center text-sm mt-1 text-red-400"></p>
+                      
+                     </div>
 
 
                 <!-- COUNTRIES -->
@@ -381,10 +386,12 @@
                         Pays de production <span class="text-red-400">*</span>
                     </label>
 
-                    <input type="text" id="editCountries" name="productionCountries" required
+                    <input type="text" id="editCountries" name="productionCountries" 
                         placeholder="USA, UK"
                         class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500">
-                </div>
+                     <p class="countryErrorEdit text-center text-sm mt-1 text-red-400"></p>
+                
+                      </div>
 
 
                 <!-- DESCRIPTION -->
@@ -393,9 +400,10 @@
                         Description <span class="text-red-400">*</span>
                     </label>
 
-                    <textarea id="editDescription" name="description" required rows="4"
+                    <textarea id="editDescription" name="description"  rows="4"
                         placeholder="Description du film ou de la série..."
                         class="w-full bg-[#211e35] border border-violet-500/30 rounded-lg px-3 py-3 text-white outline-none focus:border-violet-500 resize-y"></textarea>
+                     <p class="disErrorEdit text-center text-sm mt-1 text-red-400"></p>
                 </div>
 
 
@@ -421,9 +429,11 @@
                         Modifier
 
                     </button>
-
+                    
                 </div>
+              <p class="formErrorEdit hidden text-center text-xl mt-1  text-red-400 bg-red-500/20 p-3 border border-red-600 rounded-lg col-span-2"></p>
 
+                
             </div>
 
         </form>

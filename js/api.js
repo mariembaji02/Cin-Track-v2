@@ -26,6 +26,6 @@ export const getContent=()=>request("/Catalogu")
 export const createContent=(data)=>request("/Catalogu",{method:"POST",body:JSON.stringify(data)})
     
 
-export function updateContent(){}
+export const updateContent=(id,data)=>request(`/Catalogu/${id}`,{method:"PUT",body:JSON.stringify(data)})
 export const deleteContent=(id)=>request(`/Catalogu/${id}`,{method:"DELETE"})
 export function getComments(){}
