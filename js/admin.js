@@ -14,6 +14,8 @@ let dureeEdit=document.querySelector("#dureeEdit");
 let seasonsEdit=document.querySelector(".seasonsEdit");
 let yearEdit=document.querySelector(".yearEdit");
 let editSelect = document.getElementById("editType");
+let dateToday=document.querySelector(".dateToday")
+dateToday.textContent=new Date().toLocaleDateString("fr-FR").split("/").join(" - ")
 import {validerMovie} from "./validation.js"
 // afficher le message rechercher pendant fetch
 function loading() {

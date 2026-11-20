@@ -455,32 +455,25 @@
                      <nav class="flex justify-between items-center w-[100%] p-1">
                         <header class=" flex  items-center gap-2  p-4 relative rounded-lg"> <img src="images/movie-icon.svg" alt="icon" class=" w-10 h-10"> <h1 class="text-xl font-semibold"> Ciné<span class="text-pink-700">Track</span></h1></header>
 
-                            <div class="search absolute w-[100%]   top-[10%] md:static md:w-[35%] lg:relative   flex  justify-center items-center gap-2 ">
-                            <input type="text" placeholder=" Enter le titre ..." class="Search border border-gray-400 rounded-md w-[80%] p-2 text-gray-700 bg-white">
-                            <i class="fa-solid fa-search text-lg  text-gray-500 absolute right-[15%] md:right-[25%] lg:right-[17%]"  ></i>
-                            </div>
+                          
                            <div class=" flex  items-center cursor-pointer">
                             <p class=" flex  items-center text-center  gap-1 px-3 py-3  text-md md:text-sm rounded-lg "><a href="index.html" class="flex gap-2 items-center "><span class="bg-[rgba(230,223,230,0.6)] p-1 rounded-xl"><img src="images/catalogu.svg" alt="catalogue" class="w-5 h-5"></span><span class="text-white" >Catalogue</span></a> </p>
                            </div>
                          </nav>
                        <main class="content  grid  ">
-                         <section class="rounded p-2 border-[#854b85d3]   h-auto ">
+                         <section class="rounded p-2 border-[#854b85d3]  h-auto ">
                             <!-- dash board  -->
                             <div class="flex justify-between items-start ">
-                                <h1 class="text-white text-2xl font-semibold ">Dashboard</h1>
-                                <div class="bg-[rgba(162,88,184,0.49)] mt-2 flex gap-1 text-purple-300 p-1 rounded-lg"> <img src="images/date.svg" class="w-5" alt=""><span class="text-sm">date of today</span></div>
+                                <h1 class="text-white text-2xl font-semibold ">Admin Space</h1>
+                                <div class="bg-[rgba(162,88,184,0.49)] mt-2 flex gap-1 text-purple-300 p-2 rounded-xl"> <img src="images/date.svg" class="w-5" alt=""><span class="text-sm dateToday"></span></div>
                             </div>
-                            <div class="flex flex-col sm:flex-row items-center justify-center gap-2  mt-4">
-                                <div class="bg-[rgba(45,25,75,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 md:w-[35%] h-30 rounded flex justify-center gap-3 p-2"> <img src="images/iconMovies.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">29</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
-                                <div class="bg-[rgba(62,75,25,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 md:w-[35%] h-30 rounded flex justify-center gap-3 p-2"> <img src="images/star.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">4.9</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
-                                <div class="bg-[rgba(67,25,75,0.55)] backdrop-blur-xl w-[80%]  border border-white/10 h-30 rounded flex md:w-[35%]   justify-center gap-3  p-2">   <img src="images/heart.svg" class="w-15"><div class=" flex flex-col justify-center"><h1 class="text-2xl font-bold">3.1K</h1><p class="text-sm text-gray-400">Total Movies et Series</p></div></div>
-                            </div>
+                          
                          </section>
                          <section>
                             <!-- grid of movie -->
                               <div class="flex  justify-between items-center  p-3 rounded border border-violet-700/30   bg-[rgba(185,133,168,0.2)] m-2 h-20">
                                  <div class="flex items-center gap-1"><h2 class="font-bold text-lg"> Movies & Series </h2></div>
-                                 <button class="bg-purple-300/50 w-9 cursor-pointer font-bold text-xl rounded p-1" onclick="document.querySelector('.modal').classList.remove('hidden');document.querySelector('#modalAdd').classList.remove('hidden');">+</button>
+                                 <button class="bg-purple-300/50 cursor-pointer font-semibold text-md rounded p-1" onclick="document.querySelector('.modal').classList.remove('hidden');document.querySelector('#modalAdd').classList.remove('hidden');">+Ajouter</button>
                               </div>
                            <div class="gridMovies border w-[90%] border-violet-700/30 gap-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 lg:gap-2  p-4 w-full place-items-center">  
                                   
