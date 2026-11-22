@@ -308,12 +308,17 @@ formEdit.addEventListener("submit",async(e)=>{
                 message=`« ${movie.title}  bien Modifier»`
 
                 await updateContent(editId,movie)
-                let index=[...Favorite].findIndex(f=>f.id===editId)
-                if(!index)
-                {
-                    Favorite[index]=movie
-                    saveFavorite()
-                }
+                  let oldMovie = [...Favorite].find(f => f.id === editId);
+
+                  if (oldMovie) {
+                      Favorite.delete(oldMovie);
+                      Favorite.add({
+                          ...movie,
+                          id: editId
+                      });
+
+                      saveFavorite();
+                  }
                 movies = await getContent();
                 afficherCardAdmin(movies);
                 document.querySelector(".formErrorEdit").classList.remove("bg-red-500/20","border-red-600","text-red-400")
